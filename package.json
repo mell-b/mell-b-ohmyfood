@@ -1,0 +1,25 @@
+{
+  "name": "milo-oh-my-food",
+  "version": "1.0.0",
+  "description": "mon projet ohmyfood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mell-b/mell-b-ohmyfood.git"
+  },
+  "author": "Mell.B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mell-b/mell-b-ohmyfood/issues"
+  },
+  "homepage": "https://github.com/mell-b/mell-b-ohmyfood#readme",
+  "dependencies": {
+    "node": "^20.5.0"
+  },
+  "devDependencies": {
+    "sass": "^1.64.2"
+  }
+}
