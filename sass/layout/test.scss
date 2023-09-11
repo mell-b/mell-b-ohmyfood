@@ -1,0 +1,5 @@
+@for $i from  1 to 3 {
+    .block-#{$i} {
+       background-color: #D8EBFB;
+  }
+}

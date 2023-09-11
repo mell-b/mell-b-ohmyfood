@@ -1,9 +1,14 @@
-@use "../utils/box-shadow.scss";
+@use "../utils/mixin.scss";
+@use "../utils/colors";
 
 .explorer {
     text-align: center;
+    margin: 2rem;
 & h2 {
-    margin-top: 2rem;
+    // margin-top: 1rem;
+    // margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin: 1rem;
 }
 
 & p {
@@ -11,22 +16,51 @@
 }
 
 & button {
-    color: white;
-    font-weight: 300px;
+    @include mixin.base-button;
     font-size: 1rem;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 2rem;
-    background-image: linear-gradient( to top , rgba(147,86,220,.9),rgba(255,121,218,.9));
-    transition: all 200ms;
-    margin-top: 1rem;
-    cursor: pointer;
-    @include box-shadow.base-shadow;
 }
 
-& button:hover {
-    transform: scale(1.02);
-    opacity: 0.9;
 }
 
+.loader {
+    $animation-duration:1s;
+    $animation-count:3;
+    position: fixed;
+    display: grid;
+    place-items: center;
+    background-color: #ffffff;
+    height: 100vh;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.8;
+    animation: disapear 200ms $animation-duration*$animation-count forwards;
+    transform-origin: top;
+    &::after {
+        content: "";
+        height: 100px;
+        width: 100px;
+        border: 5px solid transparent;
+        border-top: 5px solid colors.$purple;
+        border-radius: 50%;
+        animation: spin $animation-duration  ease-in-out;
+        animation-iteration-count: $animation-count;
+
+    }
+
+}
+
+@keyframes disapear {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

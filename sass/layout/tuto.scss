@@ -1,10 +1,12 @@
-@use "../utils/zoom.scss" ;
-@use "../utils/box-shadow.scss";
+@use "../utils/mixin.scss" ;
 @use "../utils/variable";
 @use "../utils/colors";
 
 .tuto {
     counter-reset: steps;
+    h2 {
+        margin-bottom: 2rem;
+    }
     & ol {
         display: flex;
         gap: 2rem;
@@ -25,17 +27,19 @@
             place-items:center;
             border-radius: 50%;
             position: absolute;
-            bottom: variable.$tuto-bullet-height;
+            bottom: 50%;
             left: -1 * variable.$tuto-bullet-height;
+            top:50% ;
+            transform: translateY(-50%);
         }
         list-style-type: none;
         background-color: #f6f6f6;
         padding: 1.5rem 2rem;
         flex-grow: 1;
         border-radius: 1rem;
-        @include box-shadow.base-shadow;
+        @include mixin.box-shadow;
         &:hover {
-            @include zoom.transform-zoom;
+            @include mixin.transform-zoom
         }
         & i.fa-solid {
             margin-right: 1rem;

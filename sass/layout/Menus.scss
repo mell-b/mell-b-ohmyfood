@@ -1,0 +1,90 @@
+@use "../utils/variable";
+@use "../utils/colors";
+@use "../utils/mixin.scss";
+
+
+#homepage {
+
+    .menus {
+        background-color: #f6f6f6;
+        margin-bottom: 2rem;
+
+        h2 {
+            padding: 0 0 1rem;
+        }
+    .menus_cards{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+        @media (max-width:variable.$breakpoint){
+            grid-template-columns: repeat(1,1fr);
+        }
+         
+        .new {
+            position: relative;
+        }
+        
+        .new::before {
+            content: "Nouveau";
+            position: absolute;
+            height: 2rem;
+            width:5rem;
+            background-color: colors.$color-tertiary;
+            color: darken(colors.$color-tertiary,  50%);
+            display: grid;
+            place-items: center;
+            right: 1rem;
+            top: 1rem;
+        }
+   }
+   
+    .card { 
+        & .card_image {
+            height: 15rem;
+            border-radius: 1rem 1rem 0 0 ;
+            background-size: cover;
+        }
+        
+        @for $i from 1 through 4 {
+            &_image-#{$i} {
+                background-image: url("./image/menu-#{$i}.jpg");
+            } 
+        }
+        
+        &_description {
+            position: relative;
+            background-color: white;
+            border-radius: 0 0 1rem 1rem; 
+            height: 4rem;
+
+            h3,
+            p {
+                padding-top: 0.5rem;
+                margin-left:0.5rem ;
+            }
+
+            i {
+                font-size: 2rem;
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .fa-solid {
+                color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+                opacity: 0;
+                transition: all 200ms ease-in-out;
+                @include mixin.gradient(1);
+            }
+            &:hover .fa-solid {
+                opacity: 1;
+                transform:translateY(-50%);
+            }
+            
+        }
+     }    
+    }
+}

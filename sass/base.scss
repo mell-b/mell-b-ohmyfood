@@ -1,3 +1,4 @@
+@use "./utils/variable.scss";
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500&family=Shrikhand&display=swap');
 
@@ -17,5 +18,24 @@ body {
 }
 
 main {
-    padding: 0 1rem;
+    padding: 0 7rem;
+    @media (max-width:variable.$breakpoint) {
+        padding: 0 1rem;
+    }
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding:0;
+    margin: 0 ;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+} 
